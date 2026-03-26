@@ -2,139 +2,122 @@
 <html>
 <head>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,900;1,700&family=DM+Sans:wght@300;400;500&display=swap');
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;700&display=swap');
+  * { margin:0; padding:0; box-sizing:border-box; }
   body {
-    background: #0e0c1a; color: #f5f0e8; font-family: 'DM Sans', sans-serif;
-    min-height: 100vh; padding: 40px 20px;
+    background:#0e0c1a; color:#f5f0e8; font-family:'DM Sans',sans-serif;
+    min-height:100vh; padding:40px 20px;
     background-image:
-      radial-gradient(ellipse 80% 60% at 50% -10%, rgba(130,90,220,0.25) 0%, transparent 70%),
-      radial-gradient(ellipse 40% 30% at 90% 80%, rgba(255,140,60,0.12) 0%, transparent 60%);
+      radial-gradient(ellipse 80% 60% at 50% -10%,rgba(130,90,220,0.25) 0%,transparent 70%),
+      radial-gradient(ellipse 40% 30% at 90% 80%,rgba(255,140,60,0.12) 0%,transparent 60%);
   }
-  .menu-wrapper { max-width: 900px; margin: 0 auto; }
-
-  .header { text-align: center; margin-bottom: 40px; }
-  .header::before { content: '🍦'; font-size: 48px; display: block; margin-bottom: 10px; animation: float 3s ease-in-out infinite; }
+  .menu-wrapper { max-width:1000px; margin:0 auto; }
+  .header { text-align:center; margin-bottom:40px; }
+  .header::before { content:'🍦'; font-size:48px; display:block; margin-bottom:10px; animation:float 3s ease-in-out infinite; }
   @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
-  .brand-tag { font-size: 11px; font-weight: 500; letter-spacing: 5px; text-transform: uppercase; color: #a78bfa; margin-bottom: 10px; }
-  h1 {
-    font-family: 'Playfair Display', serif; font-size: clamp(32px,6vw,58px); font-weight: 900; line-height: 1;
-    background: linear-gradient(135deg, #f5f0e8 30%, #c4b5fd 100%);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 8px;
-  }
-  .header-sub { font-size: 13px; color: #9ca3af; letter-spacing: 2px; text-transform: uppercase; font-weight: 300; }
+  .brand-tag { font-size:11px; font-weight:500; letter-spacing:5px; text-transform:uppercase; color:#a78bfa; margin-bottom:10px; }
+  h1 { font-family:'Playfair Display',serif; font-size:clamp(32px,6vw,58px); font-weight:900; line-height:1; background:linear-gradient(135deg,#f5f0e8 30%,#c4b5fd 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; margin-bottom:8px; }
+  .header-sub { font-size:13px; color:#9ca3af; letter-spacing:2px; text-transform:uppercase; font-weight:300; }
 
-  .why-card {
-    border-radius: 20px; padding: 28px 28px 24px; margin-bottom: 28px;
-    background: linear-gradient(145deg, #0f1a10 0%, #0a1208 100%);
-    border: 1px solid rgba(74,222,128,0.2);
-    animation: fadeUp 0.4s ease both; position: relative; overflow: hidden;
-  }
-  .why-card::before {
-    content: ''; position: absolute; top: -60px; right: -60px;
-    width: 200px; height: 200px; border-radius: 50%;
-    background: rgba(74,222,128,0.08); filter: blur(50px);
-  }
+  .why-card { border-radius:20px; padding:28px 28px 24px; margin-bottom:28px; background:linear-gradient(145deg,#0f1a10 0%,#0a1208 100%); border:1px solid rgba(74,222,128,0.2); animation:fadeUp 0.4s ease both; position:relative; overflow:hidden; }
+  .why-card::before { content:''; position:absolute; top:-60px; right:-60px; width:200px; height:200px; border-radius:50%; background:rgba(74,222,128,0.08); filter:blur(50px); }
   @keyframes fadeUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
+  .why-header { display:flex; align-items:center; gap:14px; margin-bottom:20px; }
+  .why-icon-wrap { width:44px; height:44px; border-radius:12px; flex-shrink:0; background:rgba(74,222,128,0.12); border:1px solid rgba(74,222,128,0.25); display:flex; align-items:center; justify-content:center; font-size:22px; }
+  .why-eyebrow { font-size:9px; letter-spacing:4px; text-transform:uppercase; color:#4ade80; margin-bottom:4px; }
+  .why-title { font-family:'Playfair Display',serif; font-size:22px; font-weight:700; color:#f5f0e8; }
+  .why-stats { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:20px; }
+  .why-stat { background:rgba(255,255,255,0.03); border:1px solid rgba(74,222,128,0.12); border-radius:14px; padding:14px 12px; text-align:center; }
+  .why-stat-icon { font-size:20px; display:block; margin-bottom:6px; }
+  .why-stat-val { font-size:15px; font-weight:700; color:#4ade80; line-height:1.2; margin-bottom:3px; }
+  .why-stat-lbl { font-size:10px; color:#6b7280; line-height:1.4; }
+  .why-ingredients { background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.06); border-radius:14px; padding:14px 18px; }
+  .why-ing-label { font-size:9px; letter-spacing:3px; text-transform:uppercase; color:#4b5563; margin-bottom:12px; }
+  .why-ing-list { display:flex; flex-wrap:wrap; gap:8px; }
+  .ing-pill { display:flex; align-items:center; gap:7px; background:rgba(74,222,128,0.07); border:1px solid rgba(74,222,128,0.18); border-radius:100px; padding:6px 14px; font-size:12px; font-weight:500; color:#86efac; }
+  .why-note { margin-top:14px; font-size:11px; color:#6b7280; line-height:1.7; font-style:italic; }
+  .why-note strong { color:#4ade80; font-style:normal; font-weight:500; }
 
-  .why-header { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
-  .why-icon-wrap { width: 44px; height: 44px; border-radius: 12px; flex-shrink: 0; background: rgba(74,222,128,0.12); border: 1px solid rgba(74,222,128,0.25); display: flex; align-items: center; justify-content: center; font-size: 22px; }
-  .why-title-group { flex: 1; }
-  .why-eyebrow { font-size: 9px; letter-spacing: 4px; text-transform: uppercase; color: #4ade80; margin-bottom: 4px; }
-  .why-title { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: #f5f0e8; }
-
-  .why-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 20px; }
-  .why-stat { background: rgba(255,255,255,0.03); border: 1px solid rgba(74,222,128,0.12); border-radius: 14px; padding: 14px 12px; text-align: center; }
-  .why-stat-icon { font-size: 20px; display: block; margin-bottom: 6px; }
-  .why-stat-val { font-size: 15px; font-weight: 500; color: #4ade80; line-height: 1.2; margin-bottom: 3px; }
-  .why-stat-lbl { font-size: 10px; color: #6b7280; line-height: 1.4; }
-
-  .why-ingredients { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 14px; padding: 14px 18px; }
-  .why-ing-label { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: #4b5563; margin-bottom: 12px; }
-  .why-ing-list { display: flex; flex-wrap: wrap; gap: 8px; }
-  .ing-pill { display: flex; align-items: center; gap: 7px; background: rgba(74,222,128,0.07); border: 1px solid rgba(74,222,128,0.18); border-radius: 100px; padding: 6px 14px; font-size: 12px; font-weight: 500; color: #86efac; }
-  .ing-pill span { font-size: 14px; }
-  .why-note { margin-top: 14px; font-size: 11px; color: #6b7280; line-height: 1.7; font-style: italic; }
-  .why-note strong { color: #4ade80; font-style: normal; font-weight: 500; }
-
-  .pricing-block { background: rgba(255,255,255,0.02); border: 1px solid rgba(167,139,250,0.18); border-radius: 20px; padding: 24px 26px; margin-bottom: 28px; animation: fadeUp 0.4s ease 0.05s both; }
-  .pricing-title { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: #a78bfa; margin-bottom: 16px; text-align: center; }
-  .pricing-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; border: 1px solid rgba(255,255,255,0.06); border-radius: 14px; overflow: hidden; }
-  .pricing-col { display: flex; flex-direction: column; }
-  .pricing-col:not(:last-child) { border-right: 1px solid rgba(255,255,255,0.06); }
-  .pricing-header { padding: 12px 14px; background: rgba(255,255,255,0.04); border-bottom: 1px solid rgba(255,255,255,0.06); text-align: center; }
-  .pricing-header-icon { font-size: 22px; display: block; margin-bottom: 4px; }
-  .pricing-header-name { font-size: 13px; font-weight: 500; color: #f5f0e8; }
-  .pricing-row { display: flex; justify-content: space-between; align-items: center; padding: 9px 14px; border-bottom: 1px solid rgba(255,255,255,0.04); }
-  .pricing-row:last-child { border-bottom: none; }
-  .pr-left { display: flex; align-items: center; gap: 7px; }
-  .size-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+  .pricing-block { background:rgba(255,255,255,0.02); border:1px solid rgba(167,139,250,0.18); border-radius:20px; padding:24px 26px; margin-bottom:28px; }
+  .pricing-title { font-size:10px; letter-spacing:4px; text-transform:uppercase; color:#a78bfa; margin-bottom:16px; text-align:center; }
+  .pricing-grid { display:grid; grid-template-columns:1fr 1fr 1fr; border:1px solid rgba(255,255,255,0.06); border-radius:14px; overflow:hidden; }
+  .pricing-col { display:flex; flex-direction:column; }
+  .pricing-col:not(:last-child) { border-right:1px solid rgba(255,255,255,0.06); }
+  .pricing-header { padding:12px 14px; background:rgba(255,255,255,0.04); border-bottom:1px solid rgba(255,255,255,0.06); text-align:center; }
+  .pricing-header-icon { font-size:22px; display:block; margin-bottom:4px; }
+  .pricing-header-name { font-size:13px; font-weight:500; color:#f5f0e8; }
+  .pricing-row { display:flex; justify-content:space-between; align-items:center; padding:9px 14px; border-bottom:1px solid rgba(255,255,255,0.04); }
+  .pricing-row:last-child { border-bottom:none; }
+  .pr-left { display:flex; align-items:center; gap:7px; }
+  .size-dot { width:7px; height:7px; border-radius:50%; flex-shrink:0; }
   .dot-s{background:#60a5fa} .dot-m{background:#a78bfa} .dot-l{background:#f472b6}
-  .pr-size { font-size: 12px; font-weight: 500; color: #f5f0e8; }
-  .pr-scoop { font-size: 10px; color: #4b5563; }
-  .pr-price { font-size: 14px; font-weight: 700; }
+  .pr-size { font-size:12px; font-weight:500; color:#f5f0e8; }
+  .pr-scoop { font-size:10px; color:#4b5563; }
+  .pr-price { font-size:14px; font-weight:700; }
 
-  .note-box { background: rgba(167,139,250,0.06); border: 1px solid rgba(167,139,250,0.15); border-radius: 14px; padding: 12px 20px; text-align: center; margin-bottom: 32px; font-size: 12px; color: #9ca3af; line-height: 1.7; }
-  .note-box strong { color: #c4b5fd; font-weight: 500; }
-
-  .section-label { font-size: 10px; font-weight: 500; letter-spacing: 5px; text-transform: uppercase; color: #a78bfa; margin-bottom: 18px; text-align: center; }
-
-  .cone-legend { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 22px; }
-  .cone-legend-item { display: flex; align-items: center; gap: 7px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 100px; padding: 6px 14px; font-size: 11px; }
-  .cone-legend-dot { width: 8px; height: 8px; border-radius: 50%; }
+  .note-box { background:rgba(167,139,250,0.06); border:1px solid rgba(167,139,250,0.15); border-radius:14px; padding:12px 20px; text-align:center; margin-bottom:32px; font-size:12px; color:#9ca3af; line-height:1.7; }
+  .note-box strong { color:#c4b5fd; font-weight:500; }
+  .section-label { font-size:10px; font-weight:500; letter-spacing:5px; text-transform:uppercase; color:#a78bfa; margin-bottom:18px; text-align:center; }
+  .cone-legend { display:flex; justify-content:center; gap:10px; flex-wrap:wrap; margin-bottom:22px; }
+  .cone-legend-item { display:flex; align-items:center; gap:7px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.07); border-radius:100px; padding:6px 14px; font-size:11px; }
+  .cone-legend-dot { width:8px; height:8px; border-radius:50%; }
   .dot-reg{background:#93c5fd} .dot-waffle{background:#fcd34d} .dot-cup{background:#6ee7b7}
-  .cone-legend-name { font-weight: 500; color: #f5f0e8; }
+  .cone-legend-name { font-weight:500; color:#f5f0e8; }
 
-  .flavors-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 18px; margin-bottom: 32px; }
-  .flavor-card { border-radius: 20px; padding: 24px 20px; position: relative; overflow: hidden; border: 1px solid rgba(255,255,255,0.06); transition: transform 0.25s ease, box-shadow 0.25s ease; animation: fadeUp 0.5s ease both; }
-  .flavor-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+  /* 3-column for signature, 2-column for classics */
+  .flavors-grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-bottom:32px; }
+  .flavors-grid-2 { display:grid; grid-template-columns:repeat(2,1fr); gap:18px; margin-bottom:32px; }
+
+  .flavor-card { border-radius:20px; padding:22px 18px; position:relative; overflow:hidden; border:1px solid rgba(255,255,255,0.06); transition:transform 0.25s ease,box-shadow 0.25s ease; animation:fadeUp 0.5s ease both; }
+  .flavor-card:hover { transform:translateY(-4px); box-shadow:0 20px 40px rgba(0,0,0,0.4); }
   .flavor-card:nth-child(1){animation-delay:.05s} .flavor-card:nth-child(2){animation-delay:.1s}
   .flavor-card:nth-child(3){animation-delay:.15s} .flavor-card:nth-child(4){animation-delay:.2s}
   .flavor-card:nth-child(5){animation-delay:.25s}
-
   .card-cnc{background:linear-gradient(145deg,#1c1230 0%,#110d1f 100%)}
   .card-ctc{background:linear-gradient(145deg,#1e1510 0%,#130f08 100%)}
   .card-pist{background:linear-gradient(145deg,#0f1c12 0%,#0a1309 100%)}
   .card-van{background:linear-gradient(145deg,#1e1a10 0%,#151108 100%)}
   .card-choc{background:linear-gradient(145deg,#1a1010 0%,#110909 100%)}
-
   .card-glow { position:absolute; top:-40px; right:-40px; width:150px; height:150px; border-radius:50%; opacity:.15; filter:blur(40px); }
   .glow-cnc{background:#c4b5fd} .glow-ctc{background:#fbbf24} .glow-pist{background:#4ade80} .glow-van{background:#fde68a} .glow-choc{background:#92400e}
+  .flavor-emoji { font-size:26px; margin-bottom:8px; display:block; }
+  .flavor-top { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:4px; }
+  .flavor-name { font-family:'Playfair Display',serif; font-size:19px; font-weight:700; color:#f5f0e8; }
+  .badge { font-size:9px; letter-spacing:2px; text-transform:uppercase; padding:3px 9px; border-radius:100px; font-weight:500; white-space:nowrap; }
+  .badge-sig { background:rgba(167,139,250,0.15); color:#a78bfa; border:1px solid rgba(167,139,250,0.3); }
+  .badge-base { background:rgba(251,191,36,0.1); color:#fbbf24; border:1px solid rgba(251,191,36,0.25); }
+  .flavor-desc { font-size:11px; color:#6b7280; margin-bottom:14px; font-weight:300; line-height:1.5; }
 
-  .flavor-emoji { font-size: 26px; margin-bottom: 8px; display: block; }
-  .flavor-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4px; }
-  .flavor-name { font-family: 'Playfair Display', serif; font-size: 19px; font-weight: 700; color: #f5f0e8; }
-  .badge { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; padding: 3px 9px; border-radius: 100px; font-weight: 500; white-space: nowrap; }
-  .badge-sig { background: rgba(167,139,250,0.15); color: #a78bfa; border: 1px solid rgba(167,139,250,0.3); }
-  .badge-base { background: rgba(251,191,36,0.1); color: #fbbf24; border: 1px solid rgba(251,191,36,0.25); }
-  .flavor-desc { font-size: 11px; color: #6b7280; margin-bottom: 14px; font-weight: 300; line-height: 1.5; }
+  .sizes-list { display:flex; flex-direction:column; gap:6px; }
+  .size-block { background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.05); border-radius:10px; overflow:hidden; }
 
-  .sizes-list { display: flex; flex-direction: column; gap: 6px; }
-  .size-block { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); border-radius: 10px; overflow: hidden; }
-  .size-block-header { display: flex; align-items: center; gap: 8px; padding: 7px 12px; border-bottom: 1px solid rgba(255,255,255,0.04); }
-  .size-info { flex: 1; }
-  .size-name-row { display: flex; align-items: center; gap: 6px; }
-  .size-label { font-size: 12px; font-weight: 500; color: #f5f0e8; }
-  .size-meta { font-size: 10px; color: #4b5563; }
-  .cone-prices { display: flex; }
-  .cone-price-item { display: flex; flex-direction: column; align-items: center; padding: 5px 10px; border-left: 1px solid rgba(255,255,255,0.04); min-width: 52px; }
-  .cone-icon { font-size: 12px; margin-bottom: 1px; }
-  .cone-label { font-size: 8px; color: #4b5563; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 2px; }
-  .cone-price { font-size: 12px; font-weight: 700; }
+  /* BIGGER size label and meta — the key change */
+  .size-block-header { display:flex; align-items:center; gap:8px; padding:8px 10px; border-bottom:1px solid rgba(255,255,255,0.06); background:rgba(255,255,255,0.04); }
+  .size-label { font-size:13px; font-weight:700; color:#ffffff; }
+  .size-meta { font-size:11px; color:#e2e8f0; font-weight:600; }
+
+  /* prices — original sizing, unchanged */
+  .cone-prices { display:flex; }
+  .cone-price-item { display:flex; flex-direction:column; align-items:center; padding:6px 0; flex:1; border-left:1px solid rgba(255,255,255,0.04); }
+  .cone-price-item:first-child { border-left:none; }
+  .cone-type-icon { font-size:12px; margin-bottom:1px; }
+  .cone-type-lbl { font-size:8px; color:#4b5563; text-transform:uppercase; letter-spacing:1px; margin-bottom:2px; }
+  .cone-type-price { font-size:12px; font-weight:700; }
   .cp-reg{color:#93c5fd} .cp-waffle{color:#fcd34d} .cp-cup{color:#6ee7b7}
 
-  .pint-section { margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.05); }
-  .pint-label { font-size: 9px; text-transform: uppercase; letter-spacing: 3px; color: #374151; margin-bottom: 6px; }
-  .pint-macros { display: flex; gap: 5px; flex-wrap: wrap; }
-  .macro-chip { display:flex; align-items:center; gap:3px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); border-radius:6px; padding:3px 7px; font-size:10px; }
-  .macro-chip-val { font-weight:600; color:#f5f0e8; }
-  .macro-chip-lbl { color:#4b5563; font-size:9px; }
+  /* PINT MACROS — bigger and bolder */
+  .pint-section { margin-top:10px; padding-top:10px; border-top:1px solid rgba(255,255,255,0.05); }
+  .pint-label { font-size:8px; text-transform:uppercase; letter-spacing:3px; color:#6b7280; margin-bottom:6px; font-weight:500; }
+  .pint-macros { display:grid; grid-template-columns:repeat(4,1fr); gap:4px; }
+  .macro-chip { background:rgba(0,0,0,0.4); border:1px solid rgba(255,255,255,0.1); border-radius:8px; padding:6px 4px; text-align:center; }
+  .macro-chip-val { font-size:14px; font-weight:900; color:#ffffff; display:block; line-height:1; }
+  .macro-chip-lbl { font-size:9px; color:#9ca3af; text-transform:uppercase; letter-spacing:0.5px; font-weight:500; display:block; margin-top:2px; }
 
   .divider { display:flex; align-items:center; gap:16px; margin:28px 0; }
   .divider-line { flex:1; height:1px; background:linear-gradient(to right,transparent,rgba(167,139,250,0.4),transparent); }
   .divider-icon { color:#a78bfa; font-size:14px; }
 
-  .toppings-card { background: linear-gradient(145deg,#12101e 0%,#0d0b18 100%); border: 1px solid rgba(167,139,250,0.2); border-radius: 20px; padding: 26px 24px; margin-bottom: 32px; animation: fadeUp 0.5s ease 0.3s both; }
+  .toppings-card { background:linear-gradient(145deg,#12101e 0%,#0d0b18 100%); border:1px solid rgba(167,139,250,0.2); border-radius:20px; padding:26px 24px; margin-bottom:32px; }
   .toppings-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:18px; }
   .toppings-title { font-family:'Playfair Display',serif; font-size:22px; font-weight:700; color:#f5f0e8; }
   .topping-price-badge { background:rgba(167,139,250,0.15); border:1px solid rgba(167,139,250,0.3); color:#c4b5fd; font-size:12px; font-weight:700; padding:5px 14px; border-radius:100px; }
@@ -143,7 +126,6 @@
   .topping-icon { font-size:18px; }
   .topping-name { font-size:12px; font-weight:500; color:#f5f0e8; }
   .topping-sub { font-size:10px; color:#4b5563; margin-top:1px; }
-
   .footer { text-align:center; padding:24px 0 8px; font-size:11px; color:#374151; letter-spacing:1px; line-height:2; }
 </style>
 </head>
@@ -159,14 +141,14 @@
   <div class="why-card">
     <div class="why-header">
       <div class="why-icon-wrap">💪</div>
-      <div class="why-title-group">
+      <div>
         <div class="why-eyebrow">✦ The Difference</div>
         <div class="why-title">Why Gainz & Ice Cream?</div>
       </div>
     </div>
     <div class="why-stats">
       <div class="why-stat"><span class="why-stat-icon">🔥</span><div class="why-stat-val">Lower Calorie</div><div class="why-stat-lbl">Fewer calories per scoop than traditional ice cream</div></div>
-      <div class="why-stat"><span class="why-stat-icon">💪</span><div class="why-stat-val">45–51g Protein</div><div class="why-stat-lbl">Per pint — more than most protein bars & shakes</div></div>
+      <div class="why-stat"><span class="why-stat-icon">💪</span><div class="why-stat-val">45–51g Protein</div><div class="why-stat-lbl">Per pint — more than most protein bars &amp; shakes</div></div>
       <div class="why-stat"><span class="why-stat-icon">🚫</span><div class="why-stat-val">No Added Sugar</div><div class="why-stat-lbl">Sweetened only with raw honey — nothing artificial</div></div>
     </div>
     <div class="why-ingredients">
@@ -177,13 +159,11 @@
         <div class="ing-pill"><span>🍯</span> Raw Honey</div>
       </div>
     </div>
-    <div class="why-note">
-      No corn syrup. No artificial sweeteners. No fillers. Just <strong>real ingredients</strong> crafted into a high-protein frozen treat your macros will thank you for. Regular ice cream averages <strong>250–350 calories</strong> per cup with nearly <strong>zero protein</strong> — Gainz & Ice Cream flips the script entirely.
-    </div>
+    <div class="why-note">No corn syrup. No artificial sweeteners. No fillers. Just <strong>real ingredients</strong> crafted into a high-protein frozen treat. Regular ice cream averages <strong>250–350 calories</strong> per cup with nearly <strong>zero protein</strong> — Gainz &amp; Ice Cream flips the script entirely.</div>
   </div>
 
   <div class="pricing-block">
-    <div class="pricing-title">✦ Pricing by Size & Style ✦</div>
+    <div class="pricing-title">✦ Pricing by Size &amp; Style ✦</div>
     <div class="pricing-grid">
       <div class="pricing-col">
         <div class="pricing-header"><span class="pricing-header-icon">🍦</span><div class="pricing-header-name">Regular Cone</div></div>
@@ -206,10 +186,7 @@
     </div>
   </div>
 
-  <div class="note-box">
-    <strong>Every pint = 4 scoops.</strong> Small = 1 scoop · Medium = 2 scoops · Large = 3 scoops<br>
-    All macros shown per serving. Packed with protein — zero compromises on flavor.
-  </div>
+  <div class="note-box"><strong>Every pint = 4 scoops.</strong> Small = 1 scoop · Medium = 2 scoops · Large = 3 scoops<br>All macros shown per serving. Packed with protein — zero compromises on flavor.</div>
 
   <div class="section-label">✦ Signature Flavors ✦</div>
   <div class="cone-legend">
@@ -218,9 +195,9 @@
     <div class="cone-legend-item"><span class="cone-legend-dot dot-cup"></span><span class="cone-legend-name">🥤 Cup</span></div>
   </div>
 
-  <div class="flavors-grid">
+  <!-- 3 SIGNATURE FLAVORS ON ONE ROW -->
+  <div class="flavors-grid-3">
 
-    <!-- Oreo McFlurry -->
     <div class="flavor-card card-cnc">
       <div class="card-glow glow-cnc"></div>
       <span class="flavor-emoji">🍪</span>
@@ -228,22 +205,41 @@
       <div class="flavor-desc">Creamy vanilla base swirled with zero sugar Oreo cookies.</div>
       <div class="sizes-list">
         <div class="size-block">
-          <div class="size-block-header"><span class="size-dot dot-s"></span><div class="size-info"><div class="size-name-row"><span class="size-label">Small</span></div><div class="size-meta">¼ pint · 103 cal · 12g protein</div></div></div>
-          <div class="cone-prices"><div class="cone-price-item"><span class="cone-icon">🍦</span><span class="cone-label">Regular</span><span class="cone-price cp-reg">$2.50</span></div><div class="cone-price-item"><span class="cone-icon">🧇</span><span class="cone-label">Waffle</span><span class="cone-price cp-waffle">$4.00</span></div><div class="cone-price-item"><span class="cone-icon">🥤</span><span class="cone-label">Cup</span><span class="cone-price cp-cup">$2.50</span></div></div>
+          <div class="size-block-header"><span class="size-dot dot-s"></span><div><div class="size-label">Small</div><div class="size-meta">¼ pint · 103 cal · 12g protein</div></div></div>
+          <div class="cone-prices">
+            <div class="cone-price-item"><span class="cone-type-icon">🍦</span><span class="cone-type-lbl">Regular</span><span class="cone-type-price cp-reg">$2.50</span></div>
+            <div class="cone-price-item"><span class="cone-type-icon">🧇</span><span class="cone-type-lbl">Waffle</span><span class="cone-type-price cp-waffle">$4.00</span></div>
+            <div class="cone-price-item"><span class="cone-type-icon">🥤</span><span class="cone-type-lbl">Cup</span><span class="cone-type-price cp-cup">$2.50</span></div>
+          </div>
         </div>
         <div class="size-block">
-          <div class="size-block-header"><span class="size-dot dot-m"></span><div class="size-info"><div class="size-name-row"><span class="size-label">Medium</span></div><div class="size-meta">½ pint · 205 cal · 23g protein</div></div></div>
-          <div class="cone-prices"><div class="cone-price-item"><span class="cone-icon">🍦</span><span class="cone-label">Regular</span><span class="cone-price cp-reg">$3.50</span></div><div class="cone-price-item"><span class="cone-icon">🧇</span><span class="cone-label">Waffle</span><span class="cone-price cp-waffle">$5.00</span></div><div class="cone-price-item"><span class="cone-icon">🥤</span><span class="cone-label">Cup</span><span class="cone-price cp-cup">$3.50</span></div></div>
+          <div class="size-block-header"><span class="size-dot dot-m"></span><div><div class="size-label">Medium</div><div class="size-meta">½ pint · 205 cal · 23g protein</div></div></div>
+          <div class="cone-prices">
+            <div class="cone-price-item"><span class="cone-type-icon">🍦</span><span class="cone-type-lbl">Regular</span><span class="cone-type-price cp-reg">$3.50</span></div>
+            <div class="cone-price-item"><span class="cone-type-icon">🧇</span><span class="cone-type-lbl">Waffle</span><span class="cone-type-price cp-waffle">$5.00</span></div>
+            <div class="cone-price-item"><span class="cone-type-icon">🥤</span><span class="cone-type-lbl">Cup</span><span class="cone-type-price cp-cup">$3.50</span></div>
+          </div>
         </div>
         <div class="size-block">
-          <div class="size-block-header"><span class="size-dot dot-l"></span><div class="size-info"><div class="size-name-row"><span class="size-label">Large</span></div><div class="size-meta">¾ pint · 308 cal · 35g protein</div></div></div>
-          <div class="cone-prices"><div class="cone-price-item"><span class="cone-icon">🍦</span><span class="cone-label">Regular</span><span class="cone-price cp-reg">$5.00</span></div><div class="cone-price-item"><span class="cone-icon">🧇</span><span class="cone-label">Waffle</span><span class="cone-price cp-waffle">$6.00</span></div><div class="cone-price-item"><span class="cone-icon">🥤</span><span class="cone-label">Cup</span><span class="cone-price cp-cup">$5.00</span></div></div>
+          <div class="size-block-header"><span class="size-dot dot-l"></span><div><div class="size-label">Large</div><div class="size-meta">¾ pint · 308 cal · 35g protein</div></div></div>
+          <div class="cone-prices">
+            <div class="cone-price-item"><span class="cone-type-icon">🍦</span><span class="cone-type-lbl">Regular</span><span class="cone-type-price cp-reg">$5.00</span></div>
+            <div class="cone-price-item"><span class="cone-type-icon">🧇</span><span class="cone-type-lbl">Waffle</span><span class="cone-type-price cp-waffle">$6.00</span></div>
+            <div class="cone-price-item"><span class="cone-type-icon">🥤</span><span class="cone-type-lbl">Cup</span><span class="cone-type-price cp-cup">$5.00</span></div>
+          </div>
         </div>
       </div>
-      <div class="pint-section"><div class="pint-label">Whole Pint</div><div class="pint-macros"><div class="macro-chip"><span class="macro-chip-val">410</span><span class="macro-chip-lbl">cal</span></div><div class="macro-chip"><span class="macro-chip-val">46g</span><span class="macro-chip-lbl">protein</span></div><div class="macro-chip"><span class="macro-chip-val">39g</span><span class="macro-chip-lbl">carbs</span></div><div class="macro-chip"><span class="macro-chip-val">13g</span><span class="macro-chip-lbl">fat</span></div></div></div>
+      <div class="pint-section">
+        <div class="pint-label">Whole Pint Macros</div>
+        <div class="pint-macros">
+          <div class="macro-chip"><span class="macro-chip-val">410</span><span class="macro-chip-lbl">cal</span></div>
+          <div class="macro-chip"><span class="macro-chip-val">46g</span><span class="macro-chip-lbl">protein</span></div>
+          <div class="macro-chip"><span class="macro-chip-val">39g</span><span class="macro-chip-lbl">carbs</span></div>
+          <div class="macro-chip"><span class="macro-chip-val">13g</span><span class="macro-chip-lbl">fat</span></div>
+        </div>
+      </div>
     </div>
 
-    <!-- Cinnamon Toast Crunch -->
     <div class="flavor-card card-ctc">
       <div class="card-glow glow-ctc"></div>
       <span class="flavor-emoji">🥣</span>
@@ -251,22 +247,41 @@
       <div class="flavor-desc">Warm cinnamon-sugar nostalgia meets cold, creamy protein fuel.</div>
       <div class="sizes-list">
         <div class="size-block">
-          <div class="size-block-header"><span class="size-dot dot-s"></span><div class="size-info"><div class="size-name-row"><span class="size-label">Small</span></div><div class="size-meta">¼ pint · 101 cal · 12g protein</div></div></div>
-          <div class="cone-prices"><div class="cone-price-item"><span class="cone-icon">🍦</span><span class="cone-label">Regular</span><span class="cone-price cp-reg">$2.50</span></div><div class="cone-price-item"><span class="cone-icon">🧇</span><span class="cone-label">Waffle</span><span class="cone-price cp-waffle">$4.00</span></div><div class="cone-price-item"><span class="cone-icon">🥤</span><span class="cone-label">Cup</span><span class="cone-price cp-cup">$2.50</span></div></div>
+          <div class="size-block-header"><span class="size-dot dot-s"></span><div><div class="size-label">Small</div><div class="size-meta">¼ pint · 101 cal · 12g protein</div></div></div>
+          <div class="cone-prices">
+            <div class="cone-price-item"><span class="cone-type-icon">🍦</span><span class="cone-type-lbl">Regular</span><span class="cone-type-price cp-reg">$2.50</span></div>
+            <div class="cone-price-item"><span class="cone-type-icon">🧇</span><span class="cone-type-lbl">Waffle</span><span class="cone-type-price cp-waffle">$4.00</span></div>
+            <div class="cone-price-item"><span class="cone-type-icon">🥤</span><span class="cone-type-lbl">Cup</span><span class="cone-type-price cp-cup">$2.50</span></div>
+          </div>
         </div>
         <div class="size-block">
-          <div class="size-block-header"><span class="size-dot dot-m"></span><div class="size-info"><div class="size-name-row"><span class="size-label">Medium</span></div><div class="size-meta">½ pint · 203 cal · 24g protein</div></div></div>
-          <div class="cone-prices"><div class="cone-price-item"><span class="cone-icon">🍦</span><span class="cone-label">Regular</span><span class="cone-price cp-reg">$3.50</span></div><div class="cone-price-item"><span class="cone-icon">🧇</span><span class="cone-label">Waffle</span><span class="cone-price cp-waffle">$5.00</span></div><div class="cone-price-item"><span class="cone-icon">🥤</span><span class="cone-label">Cup</span><span class="cone-price cp-cup">$3.50</span></div></div>
+          <div class="size-block-header"><span class="size-dot dot-m"></span><div><div class="size-label">Medium</div><div class="size-meta">½ pint · 203 cal · 24g protein</div></div></div>
+          <div class="cone-prices">
+            <div class="cone-price-item"><span class="cone-type-icon">🍦</span><span class="cone-type-lbl">Regular</span><span class="cone-type-price cp-reg">$3.50</span></div>
+            <div class="cone-price-item"><span class="cone-type-icon">🧇</span><span class="cone-type-lbl">Waffle</span><span class="cone-type-price cp-waffle">$5.00</span></div>
+            <div class="cone-price-item"><span class="cone-type-icon">🥤</span><span class="cone-type-lbl">Cup</span><span class="cone-type-price cp-cup">$3.50</span></div>
+          </div>
         </div>
         <div class="size-block">
-          <div class="size-block-header"><span class="size-dot dot-l"></span><div class="size-info"><div class="size-name-row"><span class="size-label">Large</span></div><div class="size-meta">¾ pint · 304 cal · 35g protein</div></div></div>
-          <div class="cone-prices"><div class="cone-price-item"><span class="cone-icon">🍦</span><span class="cone-label">Regular</span><span class="cone-price cp-reg">$5.00</span></div><div class="cone-price-item"><span class="cone-icon">🧇</span><span class="cone-label">Waffle</span><span class="cone-price cp-waffle">$6.00</span></div><div class="cone-price-item"><span class="cone-icon">🥤</span><span class="cone-label">Cup</span><span class="cone-price cp-cup">$5.00</span></div></div>
+          <div class="size-block-header"><span class="size-dot dot-l"></span><div><div class="size-label">Large</div><div class="size-meta">¾ pint · 304 cal · 35g protein</div></div></div>
+          <div class="cone-prices">
+            <div class="cone-price-item"><span class="cone-type-icon">🍦</span><span class="cone-type-lbl">Regular</span><span class="cone-type-price cp-reg">$5.00</span></div>
+            <div class="cone-price-item"><span class="cone-type-icon">🧇</span><span class="cone-type-lbl">Waffle</span><span class="cone-type-price cp-waffle">$6.00</span></div>
+            <div class="cone-price-item"><span class="cone-type-icon">🥤</span><span class="cone-type-lbl">Cup</span><span class="cone-type-price cp-cup">$5.00</span></div>
+          </div>
         </div>
       </div>
-      <div class="pint-section"><div class="pint-label">Whole Pint</div><div class="pint-macros"><div class="macro-chip"><span class="macro-chip-val">405</span><span class="macro-chip-lbl">cal</span></div><div class="macro-chip"><span class="macro-chip-val">47g</span><span class="macro-chip-lbl">protein</span></div><div class="macro-chip"><span class="macro-chip-val">34g</span><span class="macro-chip-lbl">carbs</span></div><div class="macro-chip"><span class="macro-chip-val">9g</span><span class="macro-chip-lbl">fat</span></div></div></div>
+      <div class="pint-section">
+        <div class="pint-label">Whole Pint Macros</div>
+        <div class="pint-macros">
+          <div class="macro-chip"><span class="macro-chip-val">405</span><span class="macro-chip-lbl">cal</span></div>
+          <div class="macro-chip"><span class="macro-chip-val">47g</span><span class="macro-chip-lbl">protein</span></div>
+          <div class="macro-chip"><span class="macro-chip-val">34g</span><span class="macro-chip-lbl">carbs</span></div>
+          <div class="macro-chip"><span class="macro-chip-val">9g</span><span class="macro-chip-lbl">fat</span></div>
+        </div>
+      </div>
     </div>
 
-    <!-- Pistachio -->
     <div class="flavor-card card-pist">
       <div class="card-glow glow-pist"></div>
       <span class="flavor-emoji">🫘</span>
@@ -274,26 +289,48 @@
       <div class="flavor-desc">Nutty, buttery, and subtly sweet — for the refined protein enthusiast.</div>
       <div class="sizes-list">
         <div class="size-block">
-          <div class="size-block-header"><span class="size-dot dot-s"></span><div class="size-info"><div class="size-name-row"><span class="size-label">Small</span></div><div class="size-meta">¼ pint · 120 cal · 13g protein</div></div></div>
-          <div class="cone-prices"><div class="cone-price-item"><span class="cone-icon">🍦</span><span class="cone-label">Regular</span><span class="cone-price cp-reg">$2.50</span></div><div class="cone-price-item"><span class="cone-icon">🧇</span><span class="cone-label">Waffle</span><span class="cone-price cp-waffle">$4.00</span></div><div class="cone-price-item"><span class="cone-icon">🥤</span><span class="cone-label">Cup</span><span class="cone-price cp-cup">$2.50</span></div></div>
+          <div class="size-block-header"><span class="size-dot dot-s"></span><div><div class="size-label">Small</div><div class="size-meta">¼ pint · 120 cal · 13g protein</div></div></div>
+          <div class="cone-prices">
+            <div class="cone-price-item"><span class="cone-type-icon">🍦</span><span class="cone-type-lbl">Regular</span><span class="cone-type-price cp-reg">$2.50</span></div>
+            <div class="cone-price-item"><span class="cone-type-icon">🧇</span><span class="cone-type-lbl">Waffle</span><span class="cone-type-price cp-waffle">$4.00</span></div>
+            <div class="cone-price-item"><span class="cone-type-icon">🥤</span><span class="cone-type-lbl">Cup</span><span class="cone-type-price cp-cup">$2.50</span></div>
+          </div>
         </div>
         <div class="size-block">
-          <div class="size-block-header"><span class="size-dot dot-m"></span><div class="size-info"><div class="size-name-row"><span class="size-label">Medium</span></div><div class="size-meta">½ pint · 240 cal · 26g protein</div></div></div>
-          <div class="cone-prices"><div class="cone-price-item"><span class="cone-icon">🍦</span><span class="cone-label">Regular</span><span class="cone-price cp-reg">$3.50</span></div><div class="cone-price-item"><span class="cone-icon">🧇</span><span class="cone-label">Waffle</span><span class="cone-price cp-waffle">$5.00</span></div><div class="cone-price-item"><span class="cone-icon">🥤</span><span class="cone-label">Cup</span><span class="cone-price cp-cup">$3.50</span></div></div>
+          <div class="size-block-header"><span class="size-dot dot-m"></span><div><div class="size-label">Medium</div><div class="size-meta">½ pint · 240 cal · 26g protein</div></div></div>
+          <div class="cone-prices">
+            <div class="cone-price-item"><span class="cone-type-icon">🍦</span><span class="cone-type-lbl">Regular</span><span class="cone-type-price cp-reg">$3.50</span></div>
+            <div class="cone-price-item"><span class="cone-type-icon">🧇</span><span class="cone-type-lbl">Waffle</span><span class="cone-type-price cp-waffle">$5.00</span></div>
+            <div class="cone-price-item"><span class="cone-type-icon">🥤</span><span class="cone-type-lbl">Cup</span><span class="cone-type-price cp-cup">$3.50</span></div>
+          </div>
         </div>
         <div class="size-block">
-          <div class="size-block-header"><span class="size-dot dot-l"></span><div class="size-info"><div class="size-name-row"><span class="size-label">Large</span></div><div class="size-meta">¾ pint · 360 cal · 38g protein</div></div></div>
-          <div class="cone-prices"><div class="cone-price-item"><span class="cone-icon">🍦</span><span class="cone-label">Regular</span><span class="cone-price cp-reg">$5.00</span></div><div class="cone-price-item"><span class="cone-icon">🧇</span><span class="cone-label">Waffle</span><span class="cone-price cp-waffle">$6.00</span></div><div class="cone-price-item"><span class="cone-icon">🥤</span><span class="cone-label">Cup</span><span class="cone-price cp-cup">$5.00</span></div></div>
+          <div class="size-block-header"><span class="size-dot dot-l"></span><div><div class="size-label">Large</div><div class="size-meta">¾ pint · 360 cal · 38g protein</div></div></div>
+          <div class="cone-prices">
+            <div class="cone-price-item"><span class="cone-type-icon">🍦</span><span class="cone-type-lbl">Regular</span><span class="cone-type-price cp-reg">$5.00</span></div>
+            <div class="cone-price-item"><span class="cone-type-icon">🧇</span><span class="cone-type-lbl">Waffle</span><span class="cone-type-price cp-waffle">$6.00</span></div>
+            <div class="cone-price-item"><span class="cone-type-icon">🥤</span><span class="cone-type-lbl">Cup</span><span class="cone-type-price cp-cup">$5.00</span></div>
+          </div>
         </div>
       </div>
-      <div class="pint-section"><div class="pint-label">Whole Pint</div><div class="pint-macros"><div class="macro-chip"><span class="macro-chip-val">480</span><span class="macro-chip-lbl">cal</span></div><div class="macro-chip"><span class="macro-chip-val">51g</span><span class="macro-chip-lbl">protein</span></div><div class="macro-chip"><span class="macro-chip-val">30g</span><span class="macro-chip-lbl">carbs</span></div><div class="macro-chip"><span class="macro-chip-val">21g</span><span class="macro-chip-lbl">fat</span></div></div></div>
+      <div class="pint-section">
+        <div class="pint-label">Whole Pint Macros</div>
+        <div class="pint-macros">
+          <div class="macro-chip"><span class="macro-chip-val">480</span><span class="macro-chip-lbl">cal</span></div>
+          <div class="macro-chip"><span class="macro-chip-val">51g</span><span class="macro-chip-lbl">protein</span></div>
+          <div class="macro-chip"><span class="macro-chip-val">30g</span><span class="macro-chip-lbl">carbs</span></div>
+          <div class="macro-chip"><span class="macro-chip-val">21g</span><span class="macro-chip-lbl">fat</span></div>
+        </div>
+      </div>
     </div>
+
   </div>
 
   <div class="divider"><div class="divider-line"></div><span class="divider-icon">✦</span><div class="divider-line"></div></div>
-
   <div class="section-label">✦ Classic Base Flavors ✦</div>
-  <div class="flavors-grid">
+
+  <div class="flavors-grid-2">
+
     <div class="flavor-card card-van">
       <div class="card-glow glow-van"></div>
       <span class="flavor-emoji">🍨</span>
@@ -301,19 +338,39 @@
       <div class="flavor-desc">Pure, clean, and smooth. The OG high-protein blank canvas.</div>
       <div class="sizes-list">
         <div class="size-block">
-          <div class="size-block-header"><span class="size-dot dot-s"></span><div class="size-info"><div class="size-name-row"><span class="size-label">Small</span></div><div class="size-meta">¼ pint · 80 cal · 11g protein</div></div></div>
-          <div class="cone-prices"><div class="cone-price-item"><span class="cone-icon">🍦</span><span class="cone-label">Regular</span><span class="cone-price cp-reg">$2.50</span></div><div class="cone-price-item"><span class="cone-icon">🧇</span><span class="cone-label">Waffle</span><span class="cone-price cp-waffle">$4.00</span></div><div class="cone-price-item"><span class="cone-icon">🥤</span><span class="cone-label">Cup</span><span class="cone-price cp-cup">$2.50</span></div></div>
+          <div class="size-block-header"><span class="size-dot dot-s"></span><div><div class="size-label">Small</div><div class="size-meta">¼ pint · 80 cal · 11g protein</div></div></div>
+          <div class="cone-prices">
+            <div class="cone-price-item"><span class="cone-type-icon">🍦</span><span class="cone-type-lbl">Regular</span><span class="cone-type-price cp-reg">$2.50</span></div>
+            <div class="cone-price-item"><span class="cone-type-icon">🧇</span><span class="cone-type-lbl">Waffle</span><span class="cone-type-price cp-waffle">$4.00</span></div>
+            <div class="cone-price-item"><span class="cone-type-icon">🥤</span><span class="cone-type-lbl">Cup</span><span class="cone-type-price cp-cup">$2.50</span></div>
+          </div>
         </div>
         <div class="size-block">
-          <div class="size-block-header"><span class="size-dot dot-m"></span><div class="size-info"><div class="size-name-row"><span class="size-label">Medium</span></div><div class="size-meta">½ pint · 160 cal · 23g protein</div></div></div>
-          <div class="cone-prices"><div class="cone-price-item"><span class="cone-icon">🍦</span><span class="cone-label">Regular</span><span class="cone-price cp-reg">$3.50</span></div><div class="cone-price-item"><span class="cone-icon">🧇</span><span class="cone-label">Waffle</span><span class="cone-price cp-waffle">$5.00</span></div><div class="cone-price-item"><span class="cone-icon">🥤</span><span class="cone-label">Cup</span><span class="cone-price cp-cup">$3.50</span></div></div>
+          <div class="size-block-header"><span class="size-dot dot-m"></span><div><div class="size-label">Medium</div><div class="size-meta">½ pint · 160 cal · 23g protein</div></div></div>
+          <div class="cone-prices">
+            <div class="cone-price-item"><span class="cone-type-icon">🍦</span><span class="cone-type-lbl">Regular</span><span class="cone-type-price cp-reg">$3.50</span></div>
+            <div class="cone-price-item"><span class="cone-type-icon">🧇</span><span class="cone-type-lbl">Waffle</span><span class="cone-type-price cp-waffle">$5.00</span></div>
+            <div class="cone-price-item"><span class="cone-type-icon">🥤</span><span class="cone-type-lbl">Cup</span><span class="cone-type-price cp-cup">$3.50</span></div>
+          </div>
         </div>
         <div class="size-block">
-          <div class="size-block-header"><span class="size-dot dot-l"></span><div class="size-info"><div class="size-name-row"><span class="size-label">Large</span></div><div class="size-meta">¾ pint · 240 cal · 34g protein</div></div></div>
-          <div class="cone-prices"><div class="cone-price-item"><span class="cone-icon">🍦</span><span class="cone-label">Regular</span><span class="cone-price cp-reg">$5.00</span></div><div class="cone-price-item"><span class="cone-icon">🧇</span><span class="cone-label">Waffle</span><span class="cone-price cp-waffle">$6.00</span></div><div class="cone-price-item"><span class="cone-icon">🥤</span><span class="cone-label">Cup</span><span class="cone-price cp-cup">$5.00</span></div></div>
+          <div class="size-block-header"><span class="size-dot dot-l"></span><div><div class="size-label">Large</div><div class="size-meta">¾ pint · 240 cal · 34g protein</div></div></div>
+          <div class="cone-prices">
+            <div class="cone-price-item"><span class="cone-type-icon">🍦</span><span class="cone-type-lbl">Regular</span><span class="cone-type-price cp-reg">$5.00</span></div>
+            <div class="cone-price-item"><span class="cone-type-icon">🧇</span><span class="cone-type-lbl">Waffle</span><span class="cone-type-price cp-waffle">$6.00</span></div>
+            <div class="cone-price-item"><span class="cone-type-icon">🥤</span><span class="cone-type-lbl">Cup</span><span class="cone-type-price cp-cup">$5.00</span></div>
+          </div>
         </div>
       </div>
-      <div class="pint-section"><div class="pint-label">Whole Pint</div><div class="pint-macros"><div class="macro-chip"><span class="macro-chip-val">320</span><span class="macro-chip-lbl">cal</span></div><div class="macro-chip"><span class="macro-chip-val">45g</span><span class="macro-chip-lbl">protein</span></div><div class="macro-chip"><span class="macro-chip-val">22g</span><span class="macro-chip-lbl">carbs</span></div><div class="macro-chip"><span class="macro-chip-val">8g</span><span class="macro-chip-lbl">fat</span></div></div></div>
+      <div class="pint-section">
+        <div class="pint-label">Whole Pint Macros</div>
+        <div class="pint-macros">
+          <div class="macro-chip"><span class="macro-chip-val">320</span><span class="macro-chip-lbl">cal</span></div>
+          <div class="macro-chip"><span class="macro-chip-val">45g</span><span class="macro-chip-lbl">protein</span></div>
+          <div class="macro-chip"><span class="macro-chip-val">22g</span><span class="macro-chip-lbl">carbs</span></div>
+          <div class="macro-chip"><span class="macro-chip-val">8g</span><span class="macro-chip-lbl">fat</span></div>
+        </div>
+      </div>
     </div>
 
     <div class="flavor-card card-choc">
@@ -323,20 +380,41 @@
       <div class="flavor-desc">Rich, deep chocolate with a velvety finish. Indulgent on the tongue, honest on the macros.</div>
       <div class="sizes-list">
         <div class="size-block">
-          <div class="size-block-header"><span class="size-dot dot-s"></span><div class="size-info"><div class="size-name-row"><span class="size-label">Small</span></div><div class="size-meta">¼ pint · 83 cal · 11g protein</div></div></div>
-          <div class="cone-prices"><div class="cone-price-item"><span class="cone-icon">🍦</span><span class="cone-label">Regular</span><span class="cone-price cp-reg">$2.50</span></div><div class="cone-price-item"><span class="cone-icon">🧇</span><span class="cone-label">Waffle</span><span class="cone-price cp-waffle">$4.00</span></div><div class="cone-price-item"><span class="cone-icon">🥤</span><span class="cone-label">Cup</span><span class="cone-price cp-cup">$2.50</span></div></div>
+          <div class="size-block-header"><span class="size-dot dot-s"></span><div><div class="size-label">Small</div><div class="size-meta">¼ pint · 83 cal · 11g protein</div></div></div>
+          <div class="cone-prices">
+            <div class="cone-price-item"><span class="cone-type-icon">🍦</span><span class="cone-type-lbl">Regular</span><span class="cone-type-price cp-reg">$2.50</span></div>
+            <div class="cone-price-item"><span class="cone-type-icon">🧇</span><span class="cone-type-lbl">Waffle</span><span class="cone-type-price cp-waffle">$4.00</span></div>
+            <div class="cone-price-item"><span class="cone-type-icon">🥤</span><span class="cone-type-lbl">Cup</span><span class="cone-type-price cp-cup">$2.50</span></div>
+          </div>
         </div>
         <div class="size-block">
-          <div class="size-block-header"><span class="size-dot dot-m"></span><div class="size-info"><div class="size-name-row"><span class="size-label">Medium</span></div><div class="size-meta">½ pint · 165 cal · 23g protein</div></div></div>
-          <div class="cone-prices"><div class="cone-price-item"><span class="cone-icon">🍦</span><span class="cone-label">Regular</span><span class="cone-price cp-reg">$3.50</span></div><div class="cone-price-item"><span class="cone-icon">🧇</span><span class="cone-label">Waffle</span><span class="cone-price cp-waffle">$5.00</span></div><div class="cone-price-item"><span class="cone-icon">🥤</span><span class="cone-label">Cup</span><span class="cone-price cp-cup">$3.50</span></div></div>
+          <div class="size-block-header"><span class="size-dot dot-m"></span><div><div class="size-label">Medium</div><div class="size-meta">½ pint · 165 cal · 23g protein</div></div></div>
+          <div class="cone-prices">
+            <div class="cone-price-item"><span class="cone-type-icon">🍦</span><span class="cone-type-lbl">Regular</span><span class="cone-type-price cp-reg">$3.50</span></div>
+            <div class="cone-price-item"><span class="cone-type-icon">🧇</span><span class="cone-type-lbl">Waffle</span><span class="cone-type-price cp-waffle">$5.00</span></div>
+            <div class="cone-price-item"><span class="cone-type-icon">🥤</span><span class="cone-type-lbl">Cup</span><span class="cone-type-price cp-cup">$3.50</span></div>
+          </div>
         </div>
         <div class="size-block">
-          <div class="size-block-header"><span class="size-dot dot-l"></span><div class="size-info"><div class="size-name-row"><span class="size-label">Large</span></div><div class="size-meta">¾ pint · 248 cal · 34g protein</div></div></div>
-          <div class="cone-prices"><div class="cone-price-item"><span class="cone-icon">🍦</span><span class="cone-label">Regular</span><span class="cone-price cp-reg">$5.00</span></div><div class="cone-price-item"><span class="cone-icon">🧇</span><span class="cone-label">Waffle</span><span class="cone-price cp-waffle">$6.00</span></div><div class="cone-price-item"><span class="cone-icon">🥤</span><span class="cone-label">Cup</span><span class="cone-price cp-cup">$5.00</span></div></div>
+          <div class="size-block-header"><span class="size-dot dot-l"></span><div><div class="size-label">Large</div><div class="size-meta">¾ pint · 248 cal · 34g protein</div></div></div>
+          <div class="cone-prices">
+            <div class="cone-price-item"><span class="cone-type-icon">🍦</span><span class="cone-type-lbl">Regular</span><span class="cone-type-price cp-reg">$5.00</span></div>
+            <div class="cone-price-item"><span class="cone-type-icon">🧇</span><span class="cone-type-lbl">Waffle</span><span class="cone-type-price cp-waffle">$6.00</span></div>
+            <div class="cone-price-item"><span class="cone-type-icon">🥤</span><span class="cone-type-lbl">Cup</span><span class="cone-type-price cp-cup">$5.00</span></div>
+          </div>
         </div>
       </div>
-      <div class="pint-section"><div class="pint-label">Whole Pint</div><div class="pint-macros"><div class="macro-chip"><span class="macro-chip-val">330</span><span class="macro-chip-lbl">cal</span></div><div class="macro-chip"><span class="macro-chip-val">45g</span><span class="macro-chip-lbl">protein</span></div><div class="macro-chip"><span class="macro-chip-val">22g</span><span class="macro-chip-lbl">carbs</span></div><div class="macro-chip"><span class="macro-chip-val">8g</span><span class="macro-chip-lbl">fat</span></div></div></div>
+      <div class="pint-section">
+        <div class="pint-label">Whole Pint Macros</div>
+        <div class="pint-macros">
+          <div class="macro-chip"><span class="macro-chip-val">330</span><span class="macro-chip-lbl">cal</span></div>
+          <div class="macro-chip"><span class="macro-chip-val">45g</span><span class="macro-chip-lbl">protein</span></div>
+          <div class="macro-chip"><span class="macro-chip-val">22g</span><span class="macro-chip-lbl">carbs</span></div>
+          <div class="macro-chip"><span class="macro-chip-val">8g</span><span class="macro-chip-lbl">fat</span></div>
+        </div>
+      </div>
     </div>
+
   </div>
 
   <div class="divider"><div class="divider-line"></div><span class="divider-icon">✦</span><div class="divider-line"></div></div>
@@ -351,7 +429,7 @@
     </div>
     <div class="toppings-grid">
       <div class="topping-item"><span class="topping-icon">🍪</span><div><div class="topping-name">Oreo Crumbles</div><div class="topping-sub">Classic cookie crush</div></div></div>
-      <div class="topping-item"><span class="topping-icon">🌾</span><div><div class="topping-name">Granola</div><div class="topping-sub">Crunchy & hearty</div></div></div>
+      <div class="topping-item"><span class="topping-icon">🌾</span><div><div class="topping-name">Granola</div><div class="topping-sub">Crunchy &amp; hearty</div></div></div>
       <div class="topping-item"><span class="topping-icon">🎉</span><div><div class="topping-name">Sprinkles</div><div class="topping-sub">Because why not</div></div></div>
       <div class="topping-item"><span class="topping-icon">🍯</span><div><div class="topping-name">Crushed Graham Crackers</div><div class="topping-sub">S'mores vibes</div></div></div>
     </div>
